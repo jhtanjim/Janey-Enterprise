@@ -1,94 +1,3 @@
-// import React from "react";
-// import { Facebook, Twitter, Linkedin } from "lucide-react";
-
-// const Footer = () => {
-//   return (
-//     <footer className="bg-blue-900 text-white w-full">
-//       <div className="w-full px-4 py-12">
-//         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-//           {/* Company Info */}
-//           <div className="space-y-4">
-//             <h3 className="text-xl font-bold">M/S JANEY ENTERPRISE</h3>
-//             <p className="text-blue-200">
-//               Your trusted partner for complete marine services and solutions in
-//               Chattogram.
-//             </p>
-//             <p className="text-sm text-blue-200">BIN: 003462851-0503</p>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div>
-//             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-//             <ul className="space-y-2">
-//               <li>
-//                 <a href="/" className="text-blue-200 hover:text-white">
-//                   Home
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="/about" className="text-blue-200 hover:text-white">
-//                   About Us
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="/services" className="text-blue-200 hover:text-white">
-//                   Services
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="/contact" className="text-blue-200 hover:text-white">
-//                   Contact
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-
-//           {/* Services */}
-//           <div>
-//             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-//             <ul className="space-y-2">
-//               <li className="text-blue-200">Ship Chandler</li>
-//               <li className="text-blue-200">Tank Cleaning</li>
-//               <li className="text-blue-200">Bunker Provision</li>
-//               <li className="text-blue-200">Technical Support</li>
-//             </ul>
-//           </div>
-
-//           {/* Contact Info */}
-//           <div>
-//             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-//             <div className="space-y-2 text-blue-200">
-//               <p>229, Stand Road,</p>
-//               <p>Banglabazar, Chattogram</p>
-//               <p>Phone: 01819-383224</p>
-//               <p>Email: merajulislam0167@gmail.com</p>
-//             </div>
-//             <div className="flex space-x-4 mt-4">
-//               <a href="#" className="text-blue-200 hover:text-white">
-//                 <Facebook size={20} />
-//               </a>
-//               <a href="#" className="text-blue-200 hover:text-white">
-//                 <Twitter size={20} />
-//               </a>
-//               <a href="#" className="text-blue-200 hover:text-white">
-//                 <Linkedin size={20} />
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
-//           <p>
-//             &copy; {new Date().getFullYear()} M/S JANEY ENTERPRISE. All rights
-//             reserved.
-//           </p>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
 import React from "react";
 import { Mail, Phone, MapPin, Ship, ChevronRight } from "lucide-react";
 
@@ -123,17 +32,42 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {["Home", "About Us", "Services", "Contact Us"].map((item) => (
-                <li key={item} className="flex items-center group">
-                  <ChevronRight className="w-4 h-4 text-blue-500 group-hover:text-blue-400" />
-                  <a
-                    href="#"
-                    className="ml-2 hover:text-blue-400 transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li className="flex items-center group">
+                <ChevronRight className="w-4 h-4 text-blue-500 group-hover:text-blue-400" />
+                <a
+                  href="/"
+                  className="ml-2 hover:text-blue-400 transition-colors"
+                >
+                  Home
+                </a>
+              </li>
+              <li className="flex items-center group">
+                <ChevronRight className="w-4 h-4 text-blue-500 group-hover:text-blue-400" />
+                <a
+                  href="#about"
+                  className="ml-2 hover:text-blue-400 transition-colors"
+                >
+                  About Us
+                </a>
+              </li>
+              <li className="flex items-center group">
+                <ChevronRight className="w-4 h-4 text-blue-500 group-hover:text-blue-400" />
+                <a
+                  href="#services"
+                  className="ml-2 hover:text-blue-400 transition-colors"
+                >
+                  Services
+                </a>
+              </li>
+              <li className="flex items-center group">
+                <ChevronRight className="w-4 h-4 text-blue-500 group-hover:text-blue-400" />
+                <a
+                  href="#contact"
+                  className="ml-2 hover:text-blue-400 transition-colors"
+                >
+                  Contact Us
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -154,7 +88,9 @@ const Footer = () => {
                 <li key={service} className="flex items-center group">
                   <ChevronRight className="w-4 h-4 text-blue-500 group-hover:text-blue-400" />
                   <a
-                    href="#"
+                    href={`/services#${service
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
                     className="ml-2 hover:text-blue-400 transition-colors"
                   >
                     {service}
@@ -176,11 +112,19 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 text-blue-500 mr-3" />
-                <span>01819-383224, 01919-383224</span>
+                <span>
+                  <a href="tel:01819383224">01819-383224</a>,{" "}
+                  <a href="tel:01919383224">01919-383224</a>
+                </span>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 text-blue-500 mr-3" />
-                <span>merajulislam0167@gmail.com</span>
+                <a
+                  href="mailto:merajulislam0167@gmail.com"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  merajulislam0167@gmail.com
+                </a>
               </li>
             </ul>
           </div>
@@ -197,19 +141,19 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="text-sm hover:text-blue-400 transition-colors"
               >
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="/terms-of-service"
                 className="text-sm hover:text-blue-400 transition-colors"
               >
                 Terms of Service
               </a>
               <a
-                href="#"
+                href="/cookie-policy"
                 className="text-sm hover:text-blue-400 transition-colors"
               >
                 Cookie Policy

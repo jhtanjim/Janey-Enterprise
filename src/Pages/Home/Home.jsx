@@ -6,11 +6,19 @@ import Services from "../Services/Services ";
 const Home = () => {
   return (
     <div>
-      <Banner />
-      <div className="container lg:mx-auto ">
-        <About />
-        <Services />
-        <Contact />
+      <div id="banner">
+        <Banner />
+      </div>
+      <div className="container lg:mx-auto">
+        <div id="about">
+          <About />
+        </div>
+        <div id="services">
+          <Services />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
       </div>
     </div>
   );

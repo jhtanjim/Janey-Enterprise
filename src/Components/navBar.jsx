@@ -75,24 +75,32 @@
 // };
 
 // export default Navbar;
-import React, { useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false); // Close the mobile menu if open
+  };
+
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", id: "banner" },
+    { name: "About", id: "about" },
+    { name: "Services", id: "services" },
+    { name: "Contact", id: "contact" },
   ];
 
   return (
     <nav className="bg-white shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
-          {/* Logo Area */}
+          {/* Logo */}
           <div className="flex items-center">
             <span className="text-2xl font-bold text-blue-700">JANEY</span>
             <span className="text-2xl font-light text-gray-600">
@@ -103,13 +111,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.path}
+                onClick={() => handleScroll(item.id)}
                 className="text-gray-600 hover:text-blue-700 font-medium transition-colors duration-200"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <button className="bg-blue-700 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors duration-200">
               Get Quote
@@ -132,14 +140,13 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.path}
-                className="block py-2 text-gray-600 hover:text-blue-700"
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleScroll(item.id)}
+                className="block w-full text-left py-2 text-gray-600 hover:text-blue-700"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <button className="w-full mt-4 bg-blue-700 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors duration-200">
               Get Quote
