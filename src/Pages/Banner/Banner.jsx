@@ -50,10 +50,19 @@
 // };
 
 // export default Banner;
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const Banner = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false); // Close the mobile menu if open
+  };
   return (
     <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 w-full mt-16">
       <div className="container mx-auto px-6 py-20">
@@ -73,10 +82,16 @@ const Banner = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-yellow-400 text-blue-900 font-semibold rounded-lg hover:bg-yellow-300 transition-colors duration-200 flex items-center gap-2">
+              <button
+                onClick={() => handleScroll("services")}
+                className="px-8 py-4 bg-yellow-400 text-blue-900 font-semibold rounded-lg hover:bg-yellow-300 transition-colors duration-200 flex items-center gap-2"
+              >
                 Our Services <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-900 transition-colors duration-200">
+              <button
+                onClick={() => handleScroll("contact")}
+                className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-900 transition-colors duration-200"
+              >
                 Contact Us
               </button>
             </div>

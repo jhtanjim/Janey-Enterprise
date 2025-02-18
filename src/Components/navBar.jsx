@@ -1,80 +1,3 @@
-// import React, { useState } from "react";
-// import { Menu, X } from "lucide-react";
-
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const navItems = [
-//     { name: "Home", path: "/" },
-//     { name: "Services", path: "/services" },
-//     { name: "About", path: "/about" },
-//     { name: "Contact", path: "/contact" },
-//   ];
-
-//   return (
-//     <nav className="bg-blue-900 text-white w-full">
-//       <div className="w-full px-4">
-//         <div className="flex justify-between items-center h-16">
-//           {/* Logo and Company Name */}
-//           <div className="flex items-center space-x-2">
-//             <div className="w-10 h-10">
-//               <svg viewBox="0 0 100 100" className="fill-current">
-//                 <circle cx="50" cy="50" r="40" className="text-blue-500" />
-//                 <path
-//                   d="M50 10 L50 90 M30 50 L70 50"
-//                   stroke="white"
-//                   strokeWidth="8"
-//                 />
-//               </svg>
-//             </div>
-//             <span className="font-bold text-xl">M/S JANEY ENTERPRISE</span>
-//           </div>
-
-//           {/* Desktop Navigation */}
-//           <div className="hidden md:flex space-x-8">
-//             {navItems.map((item) => (
-//               <a
-//                 key={item.name}
-//                 href={item.path}
-//                 className="hover:text-blue-300 transition-colors duration-200"
-//               >
-//                 {item.name}
-//               </a>
-//             ))}
-//           </div>
-
-//           {/* Mobile Menu Button */}
-//           <div className="md:hidden">
-//             <button
-//               onClick={() => setIsOpen(!isOpen)}
-//               className="p-2 rounded-md hover:bg-blue-800"
-//             >
-//               {isOpen ? <X size={24} /> : <Menu size={24} />}
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Mobile Navigation */}
-//         {isOpen && (
-//           <div className="md:hidden pb-4">
-//             {navItems.map((item) => (
-//               <a
-//                 key={item.name}
-//                 href={item.path}
-//                 className="block py-2 hover:bg-blue-800 px-4 rounded"
-//                 onClick={() => setIsOpen(false)}
-//               >
-//                 {item.name}
-//               </a>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -86,18 +9,18 @@ const Navbar = () => {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
-    setIsOpen(false); // Close the mobile menu if open
+    setIsOpen(false);
   };
 
   const navItems = [
     { name: "Home", id: "banner" },
     { name: "About", id: "about" },
     { name: "Services", id: "services" },
-    { name: "Contact", id: "contact" },
+    { name: "Contact", id: "contact", primary: true },
   ];
 
   return (
-    <nav className="bg-white shadow-md fixed top-0 w-full z-50">
+    <nav className="bg-white shadow-md fixed py-2 top-0 w-full z-50">
       <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -109,19 +32,20 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden  md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleScroll(item.id)}
-                className="text-gray-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                className={
+                  item.primary
+                    ? "bg-blue-700 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors duration-200"
+                    : "text-gray-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                }
               >
                 {item.name}
               </button>
             ))}
-            <button className="bg-blue-700 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors duration-200">
-              Get Quote
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -143,14 +67,15 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => handleScroll(item.id)}
-                className="block w-full text-left py-2 text-gray-600 hover:text-blue-700"
+                className={
+                  item.primary
+                    ? "w-full mt-4 bg-blue-700 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors duration-200"
+                    : "block w-full text-left py-2 text-gray-600 hover:text-blue-700"
+                }
               >
                 {item.name}
               </button>
             ))}
-            <button className="w-full mt-4 bg-blue-700 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition-colors duration-200">
-              Get Quote
-            </button>
           </div>
         )}
       </div>
