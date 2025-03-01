@@ -12,7 +12,7 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone Numbers",
-      details: ["01819-383224", "01919-383224"],
+      details: ["01819-383224", "01977-808939"],
       color: "bg-green-100 text-green-600",
     },
     {
@@ -150,73 +150,28 @@ const Contact = () => {
             <div className="relative z-10">
               <h3 className="text-xl md:text-2xl font-bold text-blue-900 mb-6">Send Us A Message</h3>
 
-              <form className="space-y-4 md:space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Full Name
-                    </label>
-                    <input
-                      id="fullName"
-                      type="text"
-                      className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
+              <form action="https://janeyenterprise.netlify.app/msjaneyenterprise@gmail.com" method="POST" className="space-y-4 md:space-y-6">
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you" />
+  
+  <div>
+    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name</label>
+    <input id="fullName" name="name" type="text" required className="w-full px-4 py-2 border rounded" placeholder="Your Name" />
+  </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    type="text"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                    placeholder="How can we help you?"
-                  />
-                </div>
+  <div>
+    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+    <input id="email" name="email" type="email" required className="w-full px-4 py-2 border rounded" placeholder="Your Email" />
+  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows="4"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
-                    placeholder="Please describe your inquiry..."
-                  />
-                </div>
+  <div>
+    <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+    <textarea id="message" name="message" required className="w-full px-4 py-2 border rounded" placeholder="Your Message"></textarea>
+  </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <button
-                    type="submit"
-                    className="w-full sm:flex-1 bg-blue-700 text-white py-3 md:py-4 rounded-lg hover:bg-blue-800 transition-colors duration-200 font-semibold"
-                  >
-                    SEND MESSAGE
-                  </button>
-                  {/* <button
-                    type="button"
-                    onClick={makeCall}
-                    className="w-full sm:w-auto bg-blue-500 text-white p-3 md:p-4 rounded-lg hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center"
-                  >
-                    <Phone className="w-5 h-5 mr-2" />
-                    <span className="sm:sr-only">Call Us</span>
-                  </button> */}
-                </div>
-              </form>
+  <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded">Send Message</button>
+</form>
+
             </div>
           </div>
         </div>

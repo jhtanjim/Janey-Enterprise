@@ -1,6 +1,7 @@
 "use client"
 
 import { Clock, Truck, Award, Calendar, Coins, CheckCircle } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function WhyUs() {
   const reasons = [
@@ -26,7 +27,7 @@ export default function WhyUs() {
       icon: <Calendar className="w-12 h-12" />,
       title: "Experienced",
       description:
-        "Throughout history growth has been sustainable and profitable since 2012 because of its faithful and fast services. Our 8 years of experience can help our clients to succeed.",
+        "Throughout history growth has been sustainable and profitable since 1998 because of its faithful and fast services. Our 25+ years of experience can help our clients to succeed.",
     },
     {
       icon: <Coins className="w-12 h-12" />,
@@ -108,7 +109,7 @@ export default function WhyUs() {
         </div>
 
         {/* Testimonial section */}
-        <div className="mt-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl shadow-lg overflow-hidden">
+        {/* <div className="mt-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl shadow-lg overflow-hidden">
           <div className="p-8 md:p-12">
             <div className="flex flex-col items-center text-center mb-8">
               <h3 className="text-2xl font-bold text-blue-900 mb-2">What Our Clients Say</h3>
@@ -129,7 +130,7 @@ export default function WhyUs() {
               <p className="text-sm text-gray-600">Fleet Manager, Ocean Shipping Co.</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* CTA Section */}
         <div className="mt-16 bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl shadow-xl overflow-hidden">
@@ -139,11 +140,11 @@ export default function WhyUs() {
               <p className="text-blue-100">Contact us today and discover why leading shipping companies choose us</p>
             </div>
             <div className="flex space-x-4">
-              <a href="/contact">
+              <Link to="/contact">
                 <button className="bg-yellow-500 text-blue-900 px-6 py-3 rounded-lg font-medium hover:bg-yellow-400 transition-all duration-300 shadow-lg">
                   CONTACT US NOW
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
